@@ -43,6 +43,17 @@
             webcamOffToolStripMenuItem = new ToolStripMenuItem();
             videoToolStripMenuItem = new ToolStripMenuItem();
             grayscaleToolStripMenuItem = new ToolStripMenuItem();
+            replaceBackgroundToolStripMenuItem = new ToolStripMenuItem();
+            convoToolStripMenuItem = new ToolStripMenuItem();
+            gaussianBlurToolStripMenuItem = new ToolStripMenuItem();
+            sharpenToolStripMenuItem = new ToolStripMenuItem();
+            meanRemovalToolStripMenuItem = new ToolStripMenuItem();
+            embossLaplascianToolStripMenuItem = new ToolStripMenuItem();
+            horzToolStripMenuItem = new ToolStripMenuItem();
+            allDirectionsToolStripMenuItem = new ToolStripMenuItem();
+            lossyToolStripMenuItem = new ToolStripMenuItem();
+            horizontalOnlyToolStripMenuItem = new ToolStripMenuItem();
+            verticalOnlyToolStripMenuItem = new ToolStripMenuItem();
             openFileDialog1 = new OpenFileDialog();
             saveFileDialog1 = new SaveFileDialog();
             pictureBox1 = new PictureBox();
@@ -55,7 +66,6 @@
             openFileDialog2 = new OpenFileDialog();
             openFileDialog3 = new OpenFileDialog();
             timer1 = new System.Windows.Forms.Timer(components);
-            replaceBackgroundToolStripMenuItem = new ToolStripMenuItem();
             timer2 = new System.Windows.Forms.Timer(components);
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -67,7 +77,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, dIPToolStripMenuItem, webcamOnToolStripMenuItem, webcamOffToolStripMenuItem, videoToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, dIPToolStripMenuItem, webcamOnToolStripMenuItem, webcamOffToolStripMenuItem, videoToolStripMenuItem, convoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1802, 28);
@@ -165,6 +175,81 @@
             grayscaleToolStripMenuItem.Text = "Grayscale";
             grayscaleToolStripMenuItem.Click += grayscaleToolStripMenuItem_Click;
             // 
+            // replaceBackgroundToolStripMenuItem
+            // 
+            replaceBackgroundToolStripMenuItem.Name = "replaceBackgroundToolStripMenuItem";
+            replaceBackgroundToolStripMenuItem.Size = new Size(228, 26);
+            replaceBackgroundToolStripMenuItem.Text = "Replace Background";
+            replaceBackgroundToolStripMenuItem.Click += replaceBackgroundToolStripMenuItem_Click;
+            // 
+            // convoToolStripMenuItem
+            // 
+            convoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gaussianBlurToolStripMenuItem, sharpenToolStripMenuItem, meanRemovalToolStripMenuItem, embossLaplascianToolStripMenuItem, horzToolStripMenuItem, allDirectionsToolStripMenuItem, lossyToolStripMenuItem, horizontalOnlyToolStripMenuItem, verticalOnlyToolStripMenuItem });
+            convoToolStripMenuItem.Name = "convoToolStripMenuItem";
+            convoToolStripMenuItem.Size = new Size(149, 24);
+            convoToolStripMenuItem.Text = "Convolution Matrix";
+            // 
+            // gaussianBlurToolStripMenuItem
+            // 
+            gaussianBlurToolStripMenuItem.Name = "gaussianBlurToolStripMenuItem";
+            gaussianBlurToolStripMenuItem.Size = new Size(224, 26);
+            gaussianBlurToolStripMenuItem.Text = "Gaussian Blur";
+            gaussianBlurToolStripMenuItem.Click += gaussianBlurToolStripMenuItem_Click;
+            // 
+            // sharpenToolStripMenuItem
+            // 
+            sharpenToolStripMenuItem.Name = "sharpenToolStripMenuItem";
+            sharpenToolStripMenuItem.Size = new Size(224, 26);
+            sharpenToolStripMenuItem.Text = "Sharpen";
+            sharpenToolStripMenuItem.Click += sharpenToolStripMenuItem_Click;
+            // 
+            // meanRemovalToolStripMenuItem
+            // 
+            meanRemovalToolStripMenuItem.Name = "meanRemovalToolStripMenuItem";
+            meanRemovalToolStripMenuItem.Size = new Size(224, 26);
+            meanRemovalToolStripMenuItem.Text = "Mean Removal";
+            // 
+            // embossLaplascianToolStripMenuItem
+            // 
+            embossLaplascianToolStripMenuItem.Name = "embossLaplascianToolStripMenuItem";
+            embossLaplascianToolStripMenuItem.Size = new Size(224, 26);
+            embossLaplascianToolStripMenuItem.Text = "Emboss Laplascian ";
+            embossLaplascianToolStripMenuItem.Click += embossLaplascianToolStripMenuItem_Click;
+            // 
+            // horzToolStripMenuItem
+            // 
+            horzToolStripMenuItem.Name = "horzToolStripMenuItem";
+            horzToolStripMenuItem.Size = new Size(224, 26);
+            horzToolStripMenuItem.Text = "Horz/Vert";
+            horzToolStripMenuItem.Click += horzToolStripMenuItem_Click;
+            // 
+            // allDirectionsToolStripMenuItem
+            // 
+            allDirectionsToolStripMenuItem.Name = "allDirectionsToolStripMenuItem";
+            allDirectionsToolStripMenuItem.Size = new Size(224, 26);
+            allDirectionsToolStripMenuItem.Text = "All Directions";
+            allDirectionsToolStripMenuItem.Click += allDirectionsToolStripMenuItem_Click;
+            // 
+            // lossyToolStripMenuItem
+            // 
+            lossyToolStripMenuItem.Name = "lossyToolStripMenuItem";
+            lossyToolStripMenuItem.Size = new Size(224, 26);
+            lossyToolStripMenuItem.Text = "Lossy";
+            // 
+            // horizontalOnlyToolStripMenuItem
+            // 
+            horizontalOnlyToolStripMenuItem.Name = "horizontalOnlyToolStripMenuItem";
+            horizontalOnlyToolStripMenuItem.Size = new Size(224, 26);
+            horizontalOnlyToolStripMenuItem.Text = "Horizontal Only";
+            horizontalOnlyToolStripMenuItem.Click += horizontalOnlyToolStripMenuItem_Click;
+            // 
+            // verticalOnlyToolStripMenuItem
+            // 
+            verticalOnlyToolStripMenuItem.Name = "verticalOnlyToolStripMenuItem";
+            verticalOnlyToolStripMenuItem.Size = new Size(224, 26);
+            verticalOnlyToolStripMenuItem.Text = "Vertical Only";
+            verticalOnlyToolStripMenuItem.Click += verticalOnlyToolStripMenuItem_Click;
+            // 
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
@@ -256,13 +341,6 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
-            // replaceBackgroundToolStripMenuItem
-            // 
-            replaceBackgroundToolStripMenuItem.Name = "replaceBackgroundToolStripMenuItem";
-            replaceBackgroundToolStripMenuItem.Size = new Size(228, 26);
-            replaceBackgroundToolStripMenuItem.Text = "Replace Background";
-            replaceBackgroundToolStripMenuItem.Click += replaceBackgroundToolStripMenuItem_Click;
-            // 
             // timer2
             // 
             timer2.Tick += timer2_Tick;
@@ -324,5 +402,15 @@
         private System.Windows.Forms.Timer timer1;
         private ToolStripMenuItem replaceBackgroundToolStripMenuItem;
         private System.Windows.Forms.Timer timer2;
+        private ToolStripMenuItem convoToolStripMenuItem;
+        private ToolStripMenuItem gaussianBlurToolStripMenuItem;
+        private ToolStripMenuItem sharpenToolStripMenuItem;
+        private ToolStripMenuItem meanRemovalToolStripMenuItem;
+        private ToolStripMenuItem embossLaplascianToolStripMenuItem;
+        private ToolStripMenuItem horzToolStripMenuItem;
+        private ToolStripMenuItem allDirectionsToolStripMenuItem;
+        private ToolStripMenuItem lossyToolStripMenuItem;
+        private ToolStripMenuItem horizontalOnlyToolStripMenuItem;
+        private ToolStripMenuItem verticalOnlyToolStripMenuItem;
     }
 }
